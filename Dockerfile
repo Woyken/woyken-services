@@ -1,5 +1,5 @@
 FROM node:10
 COPY . /src
 RUN cd /src && npm install
-EXPOSE 80
+EXPOSE ${PORT:-4000}
 CMD ["node", "/src/server.js"]
