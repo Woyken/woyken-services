@@ -8,5 +8,3 @@
 
 # Detached run of server
 node /src/server.js &
-
-exec nginx -g 'daemon off;'
