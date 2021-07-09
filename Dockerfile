@@ -7,4 +7,5 @@ RUN chmod 777 /etc/nginx/nginx.conf
 RUN chmod 777 /usr/sbin/nginx
 COPY . /src
 RUN cd /src && npm install
-CMD ["/src/docker_startup.sh"]
+COPY nginx.conf.template /etc/nginx/conf.d/default.conf
+CMD sed -i -e 's/NGINX_PORT/'"$PORT"'/g' /etc/nginx/conf.d/default.conf && /src/docker_startup.sh
