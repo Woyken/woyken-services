@@ -1,0 +1,22 @@
+name: heroku_deploy
+
+on:
+  push:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: techmmunity/docker-heroku-deploy@v1.0.0
+        with:
+          # Email Linked to your Heroku Account
+          email: "karolis.uzkuraitis+heroku@gmail.com"
+          # Your Heroku API Key
+          api_key: ${{secrets.HEROKU_API_KEY}}
+          # Your Heroku App Name
+          app_name: "woyken-service"
