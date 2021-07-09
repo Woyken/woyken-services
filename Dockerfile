@@ -3,8 +3,6 @@ RUN apk update
 RUN /bin/sh -c "apk add --no-cache bash"
 RUN apk add nodejs
 RUN apk add npm
-#RUN chmod 777 /etc/nginx/nginx.conf
-#RUN chmod 777 /usr/sbin/nginx
 COPY . /src
 RUN chmod -R 777 /src
 RUN cd /src && npm install
