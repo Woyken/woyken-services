@@ -7,4 +7,5 @@
 #cp /src/nginx.conf.template /etc/nginx/nginx.conf
 
 # Detached run of server
-node /src/server.js &
+# node /src/server.js &
+echo test
