@@ -29,7 +29,7 @@ do
     NGINX_PATH='UNSET'
     NGINX_HOST='http://localhost:4000'
     echo 'Executing '$file
-    bash $file
+    source $file
     echo 'Result path '$NGINX_PATH
     echo 'Result url '$NGINX_HOST
     # Append the values to nginx conf
