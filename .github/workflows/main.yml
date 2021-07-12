@@ -12,6 +12,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
       - uses: techmmunity/docker-heroku-deploy@v1.0.0
         with:
           # Email Linked to your Heroku Account
