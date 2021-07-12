@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo `Searching for all server startup files`
+echo 'Searching for all server startup files'
 
 # Find all servers startup scripts and run them detached
 find /src -name "startup.sh" -print0 | while read -d $'\0' file
@@ -10,13 +10,13 @@ do
     location=`dirname $file`
     cd $location
     # Actually run the startup script
-    echo `Executing $file`
+    echo 'Executing '$file
     bash $file &
 done
 
-echo `Done executing server startup files`
+echo 'Done executing server startup files'
 
-echo `Searching for server nginx config files`
+echo 'Searching for server nginx config files'
 
 # Go through all server files and find our custom nginx configs
 
@@ -28,7 +28,7 @@ do
     chmod +x $file
     NGINX_PATH='UNSET'
     NGINX_HOST='http://localhost:4000'
-    echo `Executing $file`
+    echo 'Executing '$file
     bash $file
     # Append the values to nginx conf
     echo '    location '$NGINX_PATH' {' >> /etc/nginx/conf.d/default.conf
