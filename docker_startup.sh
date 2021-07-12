@@ -30,6 +30,8 @@ do
     NGINX_HOST='http://localhost:4000'
     echo 'Executing '$file
     bash $file
+    echo 'Result path '$NGINX_PATH
+    echo 'Result url '$NGINX_HOST
     # Append the values to nginx conf
     echo '    location '$NGINX_PATH' {' >> /etc/nginx/conf.d/default.conf
     echo '        proxy_pass '$NGINX_HOST';' >> /etc/nginx/conf.d/default.conf
