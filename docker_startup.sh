@@ -16,6 +16,13 @@ done
 
 echo 'Done executing server startup files'
 
+# Setup nginx config only once
+if [ ! -f nginx-config-done ]; then
+    touch nginx-config-done;
+else
+    exit 0;
+fi
+
 echo 'Searching for server nginx config files'
 
 # Go through all server files and find our custom nginx configs
