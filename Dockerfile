@@ -4,6 +4,8 @@ RUN /bin/sh -c "apk add --no-cache bash"
 RUN apk add nodejs
 RUN apk add npm
 COPY . /src
+RUN ["chmod", "+x", "/src/docker_setup.sh"]
+RUN /src/docker_setup.sh
 RUN ["chmod", "+x", "/src/docker_startup.sh"]
 COPY nginx.conf.template /etc/nginx/conf.d/default.conf
 ENTRYPOINT []
